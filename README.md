@@ -2,7 +2,7 @@
 
 A browser based point and click shooter game which uses CSS, HTML5, and Javascript.
 
-#How to Play
+# How to Play
 
 Click to hit targets, if you miss and allow more than a couple to reach the end you will lose.
 You win after shooting down 20 discs.
