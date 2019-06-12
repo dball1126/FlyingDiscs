@@ -3,6 +3,7 @@
     height: 1000px;
    background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/07/18/398229/b5f76fc8dab0f525bdae382028e49746.jpg");
    background-size: 100%;
+   font-family: sans-serif;
 }
 
 .main-header-container{
@@ -32,22 +33,55 @@ canvas{
 
 .title-messages{
     color: white;
-    text-shadow: 1px 1px 2px black, 0 0 25px grey, 0 0 5px darkgrey;
+    text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
+    animation: rotation 2s infinite linear;
+    transform: rotateZ(180deg) infinite;
     font-size: 24px;
     animation: popout 1s ease;
     -webkit-animation: popout 1s ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    
 }
 
-@keyframes popout {
-    from{transform:scale(0)}
-    80%{transform:scale(1.2)}
-    to{transform:scale(1)}
+.title-messages:before{
+  color: #fff;
+  text-shadow: 
+    -1px 0px 1px rgba(255,255,255,.8),
+    1px 0px 1px rgba(0,0,0,.8);
+  z-index: 3;
+  transform:
+    rotateX(0deg)
+    rotateY(-15deg)
+    rotateZ(0deg);
 }
-@-webkit-keyframes popout {
+.title-messages:after{
+  color: rgba(0,0,0,.11);
+  z-index:2;
+  transform:
+    scale(1.08,1)
+    rotateX(0deg)
+    rotateY(0deg)
+    rotateZ(0deg)
+    skew(0deg,1deg);
+}
+
+ @keyframes popout {
+    /* from{transform:scale(0)}
+    80%{transform:scale(1.2)}
+    to{transform:scale(1)}  */
+    0%   {color:#565aa9; left:0px; top:0px;}
+  25%  {color: #5461ab; left:200px; top:0px;}
+  50%  {color:#506daf; left:200px; top:200px;}
+  75%  {color:#4a73b5; left:0px; top:200px;}
+  100% {color:#3f67c0; left:0px; top:0px;} 
+ }
+ @-webkit-keyframes popout {
     from{-webkit-transform:scale(0)}
     80%{-webkit-transform:scale(1.2)}
     to{-webkit-transform:scale(1)}
-}
+} 
+
 
 
 

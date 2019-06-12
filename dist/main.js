@@ -14,7 +14,8 @@ canvas.addEventListener('mousedown',
         //target position
     });
 
-const gameOverID = "Game Over"
+const gameWonID ="Game Won";
+const gameOverID = "Game Over";
 var explosionID = "ON FIRE";
 var yesID = "YES";
 var clappingID = "EXCELLENT";
@@ -25,7 +26,8 @@ function loadSound() {
     createjs.Sound.registerSound("assets/explosion.mp3", explosionID);
     createjs.Sound.registerSound("assets/yes.mp3", yesID);
     createjs.Sound.registerSound("assets/clapping.mp3", clappingID);
-    createjs.Sound.registerSound("assets/game_over.mp3", gameOverID)
+    createjs.Sound.registerSound("assets/game_over.mp3", gameOverID);
+    createjs.Sound.registerSound("assets/game_win.mp3", gameWonID);
 }
 
 function playSound(){
@@ -38,6 +40,10 @@ function playSound(){
 
 function gameOverSound(){
     createjs.Sound.play(gameOverID);
+}
+
+function gameWonSound(){
+    createjs.Sound.play(gameWonID);
 }
 
 
@@ -74,6 +80,12 @@ function collisionDetection(){
             if(target.x > unit.x && target.x < unit.x+unit.discRadius && target.y > unit.y && target.y < unit.y+unit.discRadius){
                 unit.status = 0;   //change disc status
                 score++;  //score count
+                if (score >= 28){
+                    gameWonSound();
+                    alert("YOU WiN");
+                    document.location.reload();
+                    clearInterval(interval);
+                }
                 if(score == discArray.length){
                     // alert("ON FiRE!");  //TURN OVER
                     // document.location.reload();
