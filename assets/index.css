@@ -1,0 +1,30 @@
+.main-container{
+    height: 1000px;
+   background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/07/18/398229/b5f76fc8dab0f525bdae382028e49746.jpg");
+   background-size: 100%;
+}
+
+.main-header-container{
+    width: 1000px;
+    margin: 0 auto;
+
+}
+
+.main-header{
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+.canvas-container{
+    width: 900px;
+    margin: 0 auto;
+    
+}
+
+canvas{
+    cursor:url("https://i.imgur.com/bovi0N2.png"), auto;
+    background-image: url("https://i.imgur.com/t4MoWPQ.jpg");
+    background-size: 900px 450px;
+    
+}
