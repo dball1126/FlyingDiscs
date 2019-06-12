@@ -1,4 +1,4 @@
-# Flying Discs
+# Flying Saucers
 
 A browser based point and click shooter game which uses CSS, HTML5, and Javascript.
 
