@@ -33,13 +33,81 @@ canvas{
     color: white;
     text-shadow: 1px 1px 2px black, 0 0 25px grey, 0 0 5px darkgrey;
     font-size: 24px;
+    animation: popout 1s ease;
+    -webkit-animation: popout 1s ease;
 }
+
+@keyframes popout {
+    from{transform:scale(0)}
+    80%{transform:scale(1.2)}
+    to{transform:scale(1)}
+}
+@-webkit-keyframes popout {
+    from{-webkit-transform:scale(0)}
+    80%{-webkit-transform:scale(1.2)}
+    to{-webkit-transform:scale(1)}
+}
+
+
 
 .footer-container{
     width: 1000px;
+   
+    margin: 0 auto;
 }
 
 .main-footer{
-
+    width: 1000px;
+    
+    display: flex;
+    justify-content: center;
 }
+
+
+
+
+.footer-messages{
+    width: 1000px;
+    height: 200px;
+    animation: fire 2.0s infinite alternate;
+    text-shadow: horizontal-offset vertical-offset blur-radius color;
+    color: orangered;
+    display: flex;
+    font-size: 36px;
+    justify-content: center;
+}
+
+@keyframes fire
+{
+   0%
+   {
+       text-shadow:
+       5px -25px 50px yellow,
+       0 0px 20px red,
+       10px -15px 15px orange;
+   }
+   33%
+   {
+       text-shadow:
+       0 -20px 30px yellow,
+       15px -5px 20px red,
+       5px 0 20px orange;
+   }
+   66%
+   {
+       text-shadow:
+       10px -25px 50px yellow,
+       5px -10px 20px red,
+       0 -5px 20px orange;
+   }
+   100%
+   {
+       text-shadow:
+       0 -20px 50px yellow,
+       5px -15px 20px red,
+       10px 0 20px orange;
+   }
+}
+
+
 

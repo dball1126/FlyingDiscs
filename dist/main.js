@@ -14,20 +14,22 @@ canvas.addEventListener('mousedown',
         //target position
     });
 
-var explosionID = "Explosion";
-var successID = "Success";
-var clappingID = "Clapping";
+var explosionID = "ON FiRE!";
+var yesID = "YES!";
+var clappingID = "THERE YOU GO";
 
 function loadSound() {
     createjs.Sound.registerPlugins([createjs.HTMLAudioPlugin, createjs.WebAudioPlugin]); //Set HTMLAudioPlugin first due to an error for WebAudio  Plugin
     createjs.Sound.registerSound("assets/explosion.mp3", explosionID);
-    createjs.Sound.registerSound("assets/success.mp3", successID);
+    createjs.Sound.registerSound("assets/yes.mp3", yesID);
     createjs.Sound.registerSound("assets/clapping.mp3", clappingID);
 }
 
 function playSound(){
-    let sounds = [explosionID, successID, clappingID];
-    createjs.Sound.play(sounds[Math.floor(Math.random() * Math.floor(3))]);
+    this.sounds = [explosionID, yesID, clappingID];
+    this.rand = Math.floor(Math.random() * Math.floor(3));
+    createjs.Sound.play(this.sounds[this.rand]);
+    return sounds[rand];
 }
 
 
@@ -68,8 +70,12 @@ function collisionDetection(){
                     // alert("ON FiRE!");  //TURN OVER
                     // document.location.reload();
                     // clearInterval(interval);
-                    playSound();
+                    let sounder = playSound();
                     
+                    //Message for Main Footer
+                    const footerMessage = `${sounder}`;
+                    const footerTemplate = `<h1>${footerMessage}</h1>`;
+                    render(footerTemplate, document.querySelector('#footer-messages'));
                     turn();  //REPEAT TURN INDEFINITELY UNTIL THEY LOSE
                 }
             }
@@ -91,15 +97,20 @@ function drawMessage(){
 }
 
 //render method  vanilla javascript
-var render = function (template, node){
+var render = function (template, node){ //Render Method
     if(!node) return;
     node.innerHTML = template;
 }
-let titleMessage = "Flying Saucers";
-var template = `<h1>${titleMessage}</h1>`;
-render(template, document.querySelector('#title-messages'));
 
-function Disc(x, y, dx, dy, discRadius, status){
+
+//Message for Main Header
+const titleMessage = "Flying Saucers";
+const titleTemplate = `<h1>${titleMessage}</h1>`;
+render(titleTemplate, document.querySelector('#title-messages'));
+
+
+
+function Disc(x, y, dx, dy, discRadius, status){  //Disc class
     this.x = x;
     this.y = y;
     this.dx = dx;
