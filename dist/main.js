@@ -14,6 +14,7 @@ canvas.addEventListener('mousedown',
         //target position
     });
 
+const gameOverID = "Game Over"
 var explosionID = "ON FIRE";
 var yesID = "YES";
 var clappingID = "EXCELLENT";
@@ -24,6 +25,7 @@ function loadSound() {
     createjs.Sound.registerSound("assets/explosion.mp3", explosionID);
     createjs.Sound.registerSound("assets/yes.mp3", yesID);
     createjs.Sound.registerSound("assets/clapping.mp3", clappingID);
+    createjs.Sound.registerSound("assets/game_over.mp3", gameOverID)
 }
 
 function playSound(){
@@ -32,6 +34,10 @@ function playSound(){
     createjs.Sound.play(this.sounds[soundID]);
     
     return sounds[soundID];
+}
+
+function gameOverSound(){
+    createjs.Sound.play(gameOverID);
 }
 
 
@@ -73,8 +79,9 @@ function collisionDetection(){
                     // document.location.reload();
                     // clearInterval(interval);
                     let sounder = playSound();
-                    soundID += 1;
-                    //Message for Main Footer
+                    soundID += 1; //increment soundID per level completed
+
+                    //Messages FOR ALL left right and bottom sidebar/footer
                     const footerMessage = `${sounder}`;
                     const footerTemplate = `<h1>${footerMessage}</h1>`;
                     render(footerTemplate, document.querySelector('#footer-messages'));
@@ -160,6 +167,7 @@ function Disc(x, y, dx, dy, discRadius, status){  //Disc class
             this.dy = -this.dy;
         } else if (this.x > canvas.width){  //Does the disc fall off the right side of the screen
             //GAME OVER
+            gameOverSound();
             alert("GAME OVER");
             document.location.reload();
             clearInterval(interval);
