@@ -78,6 +78,7 @@ function collisionDetection(){
 }
 
 function drawScore() {
+    
     ctx.font = "16px Sans Serif";
     ctx.fillStyle = 'red';
     ctx.fillText("Score: "+score, 8, 20);
@@ -89,7 +90,14 @@ function drawMessage(){
     ctx.fillText("ON FIRE!", 8, 20);
 }
 
-
+//render method  vanilla javascript
+var render = function (template, node){
+    if(!node) return;
+    node.innerHTML = template;
+}
+let titleMessage = "Flying Saucers";
+var template = `<h1>${titleMessage}</h1>`;
+render(template, document.querySelector('#title-messages'));
 
 function Disc(x, y, dx, dy, discRadius, status){
     this.x = x;
@@ -98,7 +106,7 @@ function Disc(x, y, dx, dy, discRadius, status){
     this.dy = dy;
     this.discRadius = discRadius;
     this.status = status;
-    this.imageWidth = 144;
+    this.imageWidth = 144; //actual width and height of the disc.png
     this.imageHeight = 62;
    
 
@@ -148,15 +156,15 @@ function Disc(x, y, dx, dy, discRadius, status){
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // for (let i = 0; i < discArray.length; i++) {
-    //     if(discArray[i].status == 1){  //check if the disc has been hit
-    //     discArray[i].update();   //discs continually drawn 
-    //     } 
-    // }
-    // collisionDetection();
+    for (let i = 0; i < discArray.length; i++) {
+        if(discArray[i].status == 1){  //check if the disc has been hit
+        discArray[i].update();   //discs continually drawn 
+        } 
+    }
+    collisionDetection();
        
    
-    // drawScore();
+    drawScore();
    
     x += dx;
     y += dy * Math.random(199);     //set for the speed of the discs
