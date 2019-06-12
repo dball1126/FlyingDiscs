@@ -19,6 +19,7 @@
 </head>
 <body onload="loadSound();">
     <div class="main-container" >
+        
         <div class="main-header-container">
             <div class="main-header">
                 <div class="statistics">
@@ -33,11 +34,21 @@
             </div>
         </div>
         <div class="canvas-container">
+            <div class="left-sidebar-container">
+                <div class="left-sidebar" id="left-sidebar">
+            
+                </div>
+            </div>
             <canvas id="flyingCanvas" width="900px" height="450px">
                 
             </canvas>
             <script type="application/javascript" src="./dist/main.js">
             </script>
+            <div class="right-sidebar-container">
+                <div class="right-sidebar" id="right-sidebar">
+            
+                </div>
+            </div>
         </div>
         <div class="footer-container">
             <div class="main-footer">
@@ -46,6 +57,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
 <!-- <button onclick="playSound();" class="playSound">Play Sound</button> -->

@@ -14,9 +14,10 @@ canvas.addEventListener('mousedown',
         //target position
     });
 
-var explosionID = "ON FiRE!";
-var yesID = "YES!";
-var clappingID = "THERE YOU GO";
+var explosionID = "ON FIRE";
+var yesID = "YES";
+var clappingID = "EXCELLENT";
+var soundID = 0;
 
 function loadSound() {
     createjs.Sound.registerPlugins([createjs.HTMLAudioPlugin, createjs.WebAudioPlugin]); //Set HTMLAudioPlugin first due to an error for WebAudio  Plugin
@@ -27,9 +28,10 @@ function loadSound() {
 
 function playSound(){
     this.sounds = [explosionID, yesID, clappingID];
-    this.rand = Math.floor(Math.random() * Math.floor(3));
-    createjs.Sound.play(this.sounds[this.rand]);
-    return sounds[rand];
+    // this.rand = Math.floor(Math.random() * Math.floor(3));
+    createjs.Sound.play(this.sounds[soundID]);
+    
+    return sounds[soundID];
 }
 
 
@@ -71,11 +73,22 @@ function collisionDetection(){
                     // document.location.reload();
                     // clearInterval(interval);
                     let sounder = playSound();
-                    
+                    soundID += 1;
                     //Message for Main Footer
                     const footerMessage = `${sounder}`;
                     const footerTemplate = `<h1>${footerMessage}</h1>`;
                     render(footerTemplate, document.querySelector('#footer-messages'));
+
+                    const leftMessage = `${sounder}`;
+                    const leftTemplate = `<h1 class="sideMessage">${leftMessage}</h1>`;
+                    render(leftTemplate, document.querySelector('#left-sidebar'));
+
+
+                    const rightMessage = `${sounder}`;
+                    const rightTemplate = `<h1 class="sideMessage">${rightMessage}</h1>`;
+                    render(rightTemplate, document.querySelector('#right-sidebar'));
+                    
+
                     turn();  //REPEAT TURN INDEFINITELY UNTIL THEY LOSE
                 }
             }

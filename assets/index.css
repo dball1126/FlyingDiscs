@@ -1,4 +1,5 @@
 .main-container{
+    width: 100%;
     height: 1000px;
    background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/07/18/398229/b5f76fc8dab0f525bdae382028e49746.jpg");
    background-size: 100%;
@@ -17,9 +18,9 @@
 }
 
 .canvas-container{
-    width: 900px;
-    margin: 0 auto;
-    
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 canvas{
@@ -62,8 +63,6 @@ canvas{
     display: flex;
     justify-content: center;
 }
-
-
 
 
 .footer-messages{
@@ -109,5 +108,32 @@ canvas{
    }
 }
 
+.left-sidebar-container{
+    width: 200px;
+    height: 450px;
+}
 
+ .right-sidebar-container {
+     width: 200px;
+     height: 450px;
+ }
 
+.left-sidebar {
+    width: 200px;
+    height: 450px;
+    text-orientation: upright;
+    animation: fire 2.0s infinite alternate;
+    text-shadow: horizontal-offset vertical-offset blur-radius color;
+    
+}
+
+.right-sidebar {
+     width: 200px;
+    height: 450px;
+}
+
+.sideMessage {
+    text-orientation: upright;
+    color: orangered;
+    font-size: 20px;
+}
