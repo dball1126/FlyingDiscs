@@ -80,12 +80,12 @@ function collisionDetection(){
                     render(footerTemplate, document.querySelector('#footer-messages'));
 
                     const leftMessage = `${sounder}`;
-                    const leftTemplate = `<h1 class="sideMessage">${leftMessage}</h1>`;
+                    const leftTemplate = `<p class="sideMessage">${leftMessage}</p>`;
                     render(leftTemplate, document.querySelector('#left-sidebar'));
 
 
                     const rightMessage = `${sounder}`;
-                    const rightTemplate = `<h1 class="sideMessage">${rightMessage}</h1>`;
+                    const rightTemplate = `<p class="sideMessage">${rightMessage}</p>`;
                     render(rightTemplate, document.querySelector('#right-sidebar'));
                     
 
