@@ -5,51 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/index.css">
+    <link rel="stylesheet" href="./assets/header.css">
     <title>Flying Saucers</title>
     <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
+
     <style>
         canvas {
             position: center;
             top: 0px;
             left: 0px;
-            
             border: 1px solid black;
         }
     </style>
+    
 </head>
+
 <body onload="loadSound();">
+    
     <div class="main-container" >
         
         <div class="main-header-container">
             <div class="main-header">
                 <div class="statistics">
-    
+                    <!-- <h1>Score:</h1> -->
                 </div>
                 <div class="title-messages" id="title-messages">
-                    
+        
                 </div>
                 <div class="profile-links">
-    
+                    <button class="playGameButton" onClick="this.disabled=true">Play Game</button>
+                    <button class="resetButton" onClick="window.location.reload()">Reset Game</button>
                 </div>
             </div>
         </div>
+
         <div class="canvas-container">
             <div class="left-sidebar-container">
                 <div class="left-sidebar" id="left-sidebar">
             
                 </div>
             </div>
+
             <canvas id="flyingCanvas" width="900px" height="450px">
-                
+                <script type="application/javascript" src="./dist/main.js"></script>
+                <script type="application/javascript" src="./dist/sound.js"></script>
+                <script type="application/javascript" src="./dist/message.js"></script>
+                <script type="application/javascript" src="./dist/util.js"></script>
             </canvas>
-            <script type="application/javascript" src="./dist/main.js">
-            </script>
+           
             <div class="right-sidebar-container">
                 <div class="right-sidebar" id="right-sidebar">
-            
                 </div>
             </div>
         </div>
+
         <div class="footer-container">
             <div class="main-footer">
                 <div class="footer-messages" id="footer-messages">
@@ -57,7 +66,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
 <!-- <button onclick="playSound();" class="playSound">Play Sound</button> -->
