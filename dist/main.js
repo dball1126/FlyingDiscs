@@ -11,9 +11,9 @@ function drawCanvas() {
     let dy = -1.9;    //metrics for speed velocity of the discs
     let status = 1;
     let score = 0;
-    let discRadius = 50;   //size of the disc
+    let saucerRadius = 50;   //size of the saucer
 
-    let discArray = [];
+    let saucerArray = [];
 
     const target = {
         x: undefined,
@@ -29,11 +29,11 @@ function drawCanvas() {
 
 
     function collisionDetection() {
-        for (let i = 0; i < discArray.length; i++) {
-            var unit = discArray[i];
+        for (let i = 0; i < saucerArray.length; i++) {
+            var unit = saucerArray[i];
             if (unit.status == 1) {
-                if (target.x > unit.x && target.x < unit.x + unit.discRadius && target.y > unit.y && target.y < unit.y + unit.discRadius) {
-                    unit.status = 0;   //change disc status
+                if (target.x > unit.x && target.x < unit.x + unit.saucerRadius && target.y > unit.y && target.y < unit.y + unit.saucerRadius) {
+                    unit.status = 0;   //change saucer status
                     score++;  //score count
                     if (score >= 28) {
                         gameWonSound();
@@ -41,7 +41,7 @@ function drawCanvas() {
                         document.location.reload();
                         clearInterval(interval);
                     }
-                    if (score == discArray.length) {
+                    if (score == saucerArray.length) {
                         // alert("ON FiRE!");  //TURN OVER
                         // document.location.reload();
                         // clearInterval(interval);
@@ -72,29 +72,29 @@ function drawCanvas() {
 
     const turn = () => {
         for (let i = 0; i < 8; i++) {
-            //initiation of discs
+            //initiation of saucers
             const xx = Math.random() * (canvas.width / 7);
             const yy = Math.random() * (canvas.height / 1.2);
             const dxx = (Math.random()) * 3.6;
             const dyy = (Math.random()) * -1.9;
             const radius = 50;
-            discArray.push(new Disc(xx, yy, dxx, dyy, radius, status));
+            saucerArray.push(new Saucer(xx, yy, dxx, dyy, radius, status));
         }
     }
 
-    function Disc(x, y, dx, dy, discRadius, status) {  //Disc class
+    function Saucer(x, y, dx, dy, saucerRadius, status) {  //saucer class
         this.x = x;
         this.y = y;
         this.dx = dx;
         this.dy = dy;
-        this.discRadius = discRadius;
+        this.saucerRadius = saucerRadius;
         this.status = status;
-        this.imageWidth = 144; //actual width and height of the disc.png
+        this.imageWidth = 144; //actual width and height of the saucer.png
         this.imageHeight = 66;
 
         this.draw = function () {
             const image = new Image();
-            image.onload = Disc;
+            image.onload = Saucer;
             image.src = "assets/saucer4.png";
 
             ctx.beginPath();
@@ -104,14 +104,14 @@ function drawCanvas() {
 
 
             ctx.drawImage(image, this.x, this.y, this.imageWidth, this.imageHeight);
-            ctx.arc(this.x, this.y, this.discRadius, 0, Math.PI * 2, false); //arc along with up above
+            ctx.arc(this.x, this.y, this.saucerRadius, 0, Math.PI * 2, false); //arc along with up above
             ctx.closePath();
         }
 
-        this.update = function () {   //WHERE THE REAL MAGIC HAPPENS  the disc is drawn here.
-            if (this.y + this.discRadius > canvas.height || this.y - this.discRadius < 0) {
+        this.update = function () {   //WHERE THE REAL MAGIC HAPPENS  the saucer is drawn here.
+            if (this.y + this.saucerRadius > canvas.height || this.y - this.saucerRadius < 0) {
                 this.dy = -this.dy;
-            } else if (this.x > canvas.width) {  //Does the disc fall off the right side of the screen
+            } else if (this.x > canvas.width) {  //Does the saucer fall off the right side of the screen
                 //GAME OVER
                 gameOverSound();
                 alert("GAME OVER");
@@ -122,7 +122,7 @@ function drawCanvas() {
             this.x += this.dx;  //arc speed along with up above
             this.y += this.dy;
             this.imageWidth -= .09;  //change size of image as game progresses
-            this.imageHeight -= .009;  // Height should get smaller due to it being less than half of the width of the disc
+            this.imageHeight -= .009;  // Height should get smaller due to it being less than half of the width of the saucer
 
             this.draw();
         }
@@ -145,16 +145,16 @@ function drawCanvas() {
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
 
-        for (let i = 0; i < discArray.length; i++) {
-            if (discArray[i].status == 1) {  //check if the disc has been hit
-                discArray[i].update();   //discs continually drawn 
+        for (let i = 0; i < saucerArray.length; i++) {
+            if (saucerArray[i].status == 1) {  //check if the saucer has been hit
+                saucerArray[i].update();   //saucers continually drawn 
             }
         }
         collisionDetection();
         drawScore();
 
         x += dx;
-        y += dy * Math.random(199);     //set for the speed of the discs
+        y += dy * Math.random(199);     //set for the speed of the saucers
     }
     turn();
     var interval = setInterval(draw, 10);
