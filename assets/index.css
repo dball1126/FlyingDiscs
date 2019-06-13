@@ -6,21 +6,6 @@
    font-family: sans-serif;
 }
 
-.main-header-container{
-    width: 1000px;
-    margin: 0 auto;
-
-}
-
-.main-header{
-    width: 1000px;
-    display: flex;
-    justify-content: center;
-}
-
-.statistics{
-    
-}
 
 .canvas-container{
     width: 100%;
@@ -35,58 +20,40 @@ canvas{
     
 }
 
-.title-messages{
-    color: white;
-    text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
-    animation: rotation 2s infinite linear;
-    transform: rotateZ(180deg) infinite;
-    font-size: 24px;
-    animation: popout 1s ease;
-    -webkit-animation: popout 1s ease;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
+.left-sidebar-container{
+    width: 200px;
+    height: 450px;
+}
+
+ .right-sidebar-container {
+     width: 200px;
+     height: 450px;
+ }
+
+.left-sidebar {
+    width: 200px;
+    height: 450px;
+    text-orientation: upright;
+    animation: fire 2.0s infinite alternate;
+    text-shadow: horizontal-offset vertical-offset blur-radius color;
     
 }
 
-.title-messages:before{
-  color: #fff;
-  text-shadow: 
-    -1px 0px 1px rgba(255,255,255,.8),
-    1px 0px 1px rgba(0,0,0,.8);
-  z-index: 3;
-  transform:
-    rotateX(0deg)
-    rotateY(-15deg)
-    rotateZ(0deg);
-}
-.title-messages:after{
-  color: rgba(0,0,0,.11);
-  z-index:2;
-  transform:
-    scale(1.08,1)
-    rotateX(0deg)
-    rotateY(0deg)
-    rotateZ(0deg)
-    skew(0deg,1deg);
+.right-sidebar {
+     width: 200px;
+    height: 450px;
 }
 
- @keyframes popout {
-    /* from{transform:scale(0)}
-    80%{transform:scale(1.2)}
-    to{transform:scale(1)}  */
-    0%   {color:#565aa9; left:0px; top:0px;}
-  25%  {color: #5461ab; left:200px; top:0px;}
-  50%  {color:#506daf; left:200px; top:200px;}
-  75%  {color:#4a73b5; left:0px; top:200px;}
-  100% {color:#3f67c0; left:0px; top:0px;} 
- }
- @-webkit-keyframes popout {
-    from{-webkit-transform:scale(0)}
-    80%{-webkit-transform:scale(1.2)}
-    to{-webkit-transform:scale(1)}
-} 
-
-
+.sideMessage {
+    writing-mode: vertical-rl;
+  text-orientation: upright;
+  animation: fire 2.0s infinite alternate;
+    color: orangered;
+    font-size: 55px;
+    text-align: center;
+    font-weight: bold; 
+    padding-left: 20px;
+}
 
 
 .footer-container{
@@ -146,37 +113,3 @@ canvas{
    }
 }
 
-.left-sidebar-container{
-    width: 200px;
-    height: 450px;
-}
-
- .right-sidebar-container {
-     width: 200px;
-     height: 450px;
- }
-
-.left-sidebar {
-    width: 200px;
-    height: 450px;
-    text-orientation: upright;
-    animation: fire 2.0s infinite alternate;
-    text-shadow: horizontal-offset vertical-offset blur-radius color;
-    
-}
-
-.right-sidebar {
-     width: 200px;
-    height: 450px;
-}
-
-.sideMessage {
-    writing-mode: vertical-rl;
-  text-orientation: upright;
-  animation: fire 2.0s infinite alternate;
-    color: orangered;
-    font-size: 55px;
-    text-align: center;
-    font-weight: bold; 
-    padding-left: 20px;
-}
