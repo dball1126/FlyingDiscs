@@ -1,10 +1,14 @@
 
 
+
+
+
 function drawCanvas() {
+    
     disablePlayButton(); //Disabled game until clicked
     const canvas = document.getElementById("flyingCanvas");
     const ctx = canvas.getContext("2d");
-    
+    let gameOver = false;
     let x = canvas.width / 7;
     let y = canvas.height / 1.2;
     let dx = 3.6;
@@ -15,6 +19,8 @@ function drawCanvas() {
 
     let saucerArray = [];
 
+
+    
     const target = {
         x: undefined,
         y: undefined
@@ -113,10 +119,10 @@ function drawCanvas() {
                 this.dy = -this.dy;
             } else if (this.x > canvas.width) {  //Does the saucer fall off the right side of the screen
                 //GAME OVER
+                drawGameOverMessage();
                 gameOverSound();
-                alert("GAME OVER");
-                document.location.reload();
-                clearInterval(interval);
+                gameOver = true;
+               
             }
 
             this.x += this.dx;  //arc speed along with up above
@@ -128,34 +134,41 @@ function drawCanvas() {
         }
     }
 
+    
     const drawScore = () => {
-
-        ctx.font = "16px Sans Serif";
-        ctx.fillStyle = 'red';
-        ctx.fillText("Score: " + score, 8, 20);
+        const scoreTemplate = `<p>Score: ${score}</p>`;
+        render(scoreTemplate, document.querySelector('#score'))
+    }
+   
+    const drawGameOverMessage = () => {
+        const loseTemplate = `<p class="alert-box">GAME OVER ! </p>`;
+        render(loseTemplate, document.querySelector('#message1'));
     }
 
-    const drawMessage = () => {
-        ctx.font = "32px Arial";
-        ctx.fillStyle = "orange";
-        ctx.fillText("ON FIRE!", 8, 20);
-    }
-
+   
 
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
-
+        
         for (let i = 0; i < saucerArray.length; i++) {
             if (saucerArray[i].status == 1) {  //check if the saucer has been hit
                 saucerArray[i].update();   //saucers continually drawn 
             }
         }
         collisionDetection();
+        // drawGameOverMessage();
+        if (gameOver){
+            // setTimeout(function () { alert("Hello"); }, 3000);
+            //  alert("GAME OVER");
+            setTimeout(function () { clearInterval(interval); }, 3000);
+            setTimeout(function () { document.location.reload();}, 3000);
+        }
         drawScore();
 
         x += dx;
         y += dy * Math.random(199);     //set for the speed of the saucers
     }
+    
     turn();
     var interval = setInterval(draw, 10);
 }

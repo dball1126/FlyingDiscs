@@ -1,10 +1,12 @@
 
 
 //render method  vanilla javascript
+
 const render = function (template, node) { //Render Method
     if (!node) return;
     node.innerHTML = template;
 }
+
 
 
 //Message for Main Header
