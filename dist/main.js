@@ -159,5 +159,3 @@ function drawCanvas() {
     turn();
     var interval = setInterval(draw, 10);
 }
-
-
