@@ -90,12 +90,12 @@ function drawCanvas() {
         this.discRadius = discRadius;
         this.status = status;
         this.imageWidth = 144; //actual width and height of the disc.png
-        this.imageHeight = 62;
+        this.imageHeight = 66;
 
         this.draw = function () {
             const image = new Image();
             image.onload = Disc;
-            image.src = "assets/discgrey.png";
+            image.src = "assets/saucer4.png";
 
             ctx.beginPath();
             ctx.webkitImageSmoothingEnabled = false;
