@@ -14,19 +14,19 @@ function disabledHardButton() {
 
 
 function levelEasy() {
-    drawCanvas();
+    Game();
 }
 
 function levelMedium(){
-    drawCanvas(50, 10);
+    Game(50, 10);
 }
 
 function levelHard(){
-    drawCanvas(90, 11);
+    Game(90, 11);
 }
 
 
-// document.getElementById(".playMediumButton").addEventListener("click", drawCanvas);
+// document.getElementById(".playMediumButton").addEventListener("click", Game);
 document.querySelector(".playMediumButton").addEventListener("click", levelMedium);
 document.querySelector(".playHardButton").addEventListener("click", levelHard);
 document.querySelector(".playGameButton").addEventListener("click", levelEasy);

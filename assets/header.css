@@ -49,16 +49,14 @@
 }
 
  @keyframes colorful {
-    /* from{transform:scale(0)}
-    80%{transform:scale(1.2)}
-    to{transform:scale(1)}  */
+   
     0%   {color:#565aa9; left:0px; top:0px;}
   25%  {color: #5461ab; left:200px; top:0px;}
   50%  {color:#506daf; left:200px; top:200px;}
   75%  {color:#4a73b5; left:0px; top:200px;}
   100% {color:#3f67c0; left:0px; top:0px;} 
  }
- @-webkit-keyframes popout {
+ @-webkit-keyframes colorful {
     from{-webkit-transform:scale(0)}
     80%{-webkit-transform:scale(1.2)}
     to{-webkit-transform:scale(1)}
@@ -92,6 +90,7 @@
     font: inherit;
     font-size: 22px;
     font-weight: 800;
+    text-shadow: #000 1px 0 10px;
 }
 
 .score-container{
@@ -116,21 +115,6 @@
     font-weight: 800;
 }
 
-/* .message1{
-     width: 145px;
-    height: 100px;
-    text-align: center;
-    color: red;
-    font: inherit;
-    float: right;
-    position: absolute
-    
-} */
-/* border-radius: 15px; */
-/* box-shadow: 0 9px #f0c261; */
-/* outline: none; */
-/* background-color: #f1b34f; */
-
 .alert-box-lose{
     
     width: 100%;
@@ -150,16 +134,20 @@
     background-repeat: no-repeat;
 }
 
+.alert-box-score{
+    width: 100%;
+    height: 1000px;
+    position: absolute;
+    font-size: 100px;
+    background: white;
+    color: black
+}
+
 .profile-links{
     width: 450px;
     height: 120px;
     display: flex;
 }
-
-
- 
-
-
 
 .links-container{
     width: 120px;

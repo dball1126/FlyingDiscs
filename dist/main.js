@@ -1,4 +1,4 @@
-function drawCanvas(winningScore = 28, saucerCount = 8) {
+function Game(winningScore = 28, saucerCount = 8) {
 
     disableMediumButton();
     disabledHardButton();
@@ -17,7 +17,7 @@ function drawCanvas(winningScore = 28, saucerCount = 8) {
     this.winningScore = winningScore;
     this.saucerCount = saucerCount;
     let saucerArray = [];
-    
+    var realScore = 0;
     const target = {
         x: undefined,
         y: undefined
@@ -107,11 +107,15 @@ function drawCanvas(winningScore = 28, saucerCount = 8) {
             ctx.closePath();
         }
 
-        this.update = function () {   //WHERE THE REAL MAGIC HAPPENS  the saucer is drawn here.
+        this.update = function () { 
+              //WHERE THE REAL MAGIC HAPPENS  the saucer is drawn here.
             if (this.y + this.saucerRadius > canvas.height || this.y - this.saucerRadius < 0) {
                 this.dy = -this.dy;
             } else if (this.x > canvas.width) {  //Does the saucer fall off the right side of the screen
-                //GAME OVER     
+                //GAME OVER 
+                 
+                drawScoreMessage();
+
                 gameOver = true;
             }
             this.x += this.dx;  //arc speed along with up above
@@ -127,6 +131,10 @@ function drawCanvas(winningScore = 28, saucerCount = 8) {
         const scoreTemplate = `<p>Score: ${score}</p>`;
         render(scoreTemplate, document.querySelector('#score'))
     }
+    const drawScoreMessage = () => {
+        const scoreTemplateM = `<div class="alert-box-score"><p>${realScore}</p></div>`;
+        render(scoreTemplateM, document.querySelector('#message1'));
+    }
 
     function draw() { //Frames drawn section
         ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
@@ -140,11 +148,13 @@ function drawCanvas(winningScore = 28, saucerCount = 8) {
 
         if (gameOver && !gameWon){ // Game Over 
             drawGameOverMessage();
+            // drawScoreMessage();
             setTimeout(function () { clearInterval(interval); }, 3000);
             setTimeout(function () { document.location.reload();}, 3000);
         }
         drawScore();
-
+        // if(score > 0)realScore = score;
+        
         x += dx;
         y += dy * Math.random(199);     //set for the speed of the saucers
     }
