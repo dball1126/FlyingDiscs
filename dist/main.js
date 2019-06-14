@@ -1,8 +1,17 @@
-
-
-function drawCanvas() {
-    
-    disablePlayButton(); //Disabled game until clicked
+function drawCanvas(winningScore = 28, saucerCount = 8) {
+//    const levelMedium = document.getElementById("playMediumButton").addEventListener("click",
+//     function() {
+//         drawCanvas(winningScore = 40, saucerCount = 10);
+        
+//         });
+    disableMediumButton();
+    disablePlayButton();
+    // const mediumLevel = disableMediumButton();
+    // console.log(mediumLevel);
+    // const mediumLevel;
+    // const levelEasy = disablePlayButton(); //Disabled game until clicked
+    // console.log(levelEasy);
+    // console.log(levelMedium);
     const canvas = document.getElementById("flyingCanvas");
     const ctx = canvas.getContext("2d");
     var gameOver;
@@ -13,10 +22,18 @@ function drawCanvas() {
     let dy = -1.9;    //metrics for speed velocity of the discs
     let status = 1;
     let score = 0;
-    let saucerRadius = 50;   //size of the saucer
+    this.winningScore = winningScore;
+    this.saucerCount = saucerCount;
+    //Difficulty variables
+    // let winningScore = 28;
+    // let saucerCount = 8;
+    // if(mediumLevel === "levelMedium"){
+    //     winningScore = 40;
+    //     saucerCount = 10;
+    // }
+    // let saucerRadius = 50;   //size of the saucer
 
     let saucerArray = [];
-
     
     const target = {
         x: undefined,
@@ -26,11 +43,9 @@ function drawCanvas() {
     canvas.addEventListener('mousedown',
         function (event) {
             target.x = event.clientX - canvas.offsetLeft;
-            target.y = event.clientY - canvas.offsetTop;
-            //target position
-           
+            target.y = event.clientY - canvas.offsetTop; //target position
+            shootTarget();
         });
-
 
     function collisionDetection() {
         for (let i = 0; i < saucerArray.length; i++) {
@@ -40,21 +55,18 @@ function drawCanvas() {
                     unit.status = 0;   //change saucer status
                     score++;  //score count
                     
-                    if (score >= 28) {
+                    if (score >= winningScore) {//GAME WON 
                         gameWonSound();
                         drawGameWonMessage();
-                        // alert("YOU WiN");
                         gameWon = true;
                         setTimeout(function () { clearInterval(interval); }, 3000);
                         setTimeout(function () { document.location.reload(); }, 3000);
                     }
+
                     if (score == saucerArray.length) {
-                        // alert("ON FiRE!");  //TURN OVER
-                        // document.location.reload();
-                        // clearInterval(interval);
+            
                         let sounder = playSound();
                         soundID += 1; //increment  per level completed
-
                         //Messages FOR ALL left right and bottom sidebar/footer
                         const footerMessage = `${sounder}`;
                         const footerTemplate = `<h1>${footerMessage}</h1>`;
@@ -69,7 +81,6 @@ function drawCanvas() {
                         const rightTemplate = `<p class="sideMessage">${rightMessage}</p>`;
                         render(rightTemplate, document.querySelector('#right-sidebar'));
 
-
                         turn();  //REPEAT TURN INDEFINITELY UNTIL THEY LOSE
                     }
                 }
@@ -78,7 +89,7 @@ function drawCanvas() {
     }
 
     const turn = () => {
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < saucerCount; i++) {
             //initiation of saucers
             const xx = Math.random() * (canvas.width / 7);
             const yy = Math.random() * (canvas.height / 1.2);
@@ -102,14 +113,11 @@ function drawCanvas() {
         this.draw = function () {
             const image = new Image();
             image.onload = Saucer;
-            // image.src = "https://media.giphy.com/media/2Wf4qYgMmou4zjg9qX/giphy.gif";
-            image.src = "assets/saucer5.gif";
-            //image courtesy of Acura from Gify.com
+            image.src = "assets/saucer5.gif"; //image courtesy of Acura from Gify.com
             ctx.beginPath();
             ctx.webkitImageSmoothingEnabled = false;
             ctx.mozImageSmoothingEnabled = false;
             ctx.imageSmoothingEnabled = false;
-
 
             ctx.drawImage(image, this.x, this.y, this.imageWidth, this.imageHeight);
             ctx.arc(this.x, this.y, this.saucerRadius, 0, Math.PI * 2, false); //arc along with up above
@@ -120,18 +128,9 @@ function drawCanvas() {
             if (this.y + this.saucerRadius > canvas.height || this.y - this.saucerRadius < 0) {
                 this.dy = -this.dy;
             } else if (this.x > canvas.width) {  //Does the saucer fall off the right side of the screen
-                //GAME OVER
-               
-                
-                // gameovercount = 1;
+                //GAME OVER     
                 gameOver = true;
-                // if(gameOver){ 
-                // gameOverSound();
-                // gameOver = false
-                // }
-               
             }
-
             this.x += this.dx;  //arc speed along with up above
             this.y += this.dy;
             this.imageWidth -= .09;  //change size of image as game progresses
@@ -140,19 +139,13 @@ function drawCanvas() {
             this.draw();
         }
     }
-
     
     const drawScore = () => {
         const scoreTemplate = `<p>Score: ${score}</p>`;
         render(scoreTemplate, document.querySelector('#score'))
     }
-   
-    
 
-
-   
-
-    function draw() {
+    function draw() { //Frames drawn section
         ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
         
         for (let i = 0; i < saucerArray.length; i++) {
@@ -161,15 +154,11 @@ function drawCanvas() {
             }
         }
         collisionDetection();
-        // drawGameOverMessage();
-        if (gameOver && !gameWon){
-            // setTimeout(function () { alert("Hello"); }, 3000);
-            
-           
+
+        if (gameOver && !gameWon){ // Game Over 
             drawGameOverMessage();
             setTimeout(function () { clearInterval(interval); }, 3000);
             setTimeout(function () { document.location.reload();}, 3000);
-            
         }
         drawScore();
 
@@ -181,5 +170,7 @@ function drawCanvas() {
     var interval = setInterval(draw, 10);
 }
 
-
-
+// Level of Difficulty
+// Would entail higher Score
+// More Turns
+// More Saucers

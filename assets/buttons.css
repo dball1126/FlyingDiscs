@@ -1,0 +1,61 @@
+.playbutton-container{
+    width: 150px;
+    height: 115px;
+    padding: 5px;
+}
+
+.playGameButton{
+    width: 150px;
+    height: 100px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #5461ab;
+    outline: none;
+    text-align: center;
+    background-color: #4a73b5;
+    color: #FFFFFF;
+    font: inherit;
+    animation: playButtonChange 1s ease;
+    -webkit-animation: playButtonChange 1s ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    font-size: 24px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+ @keyframes playButtonChange {
+    0%   {color:#fafafa; left:0px; top:0px;}
+  25%  {color: #fcf9ec; left:200px; top:0px;}
+  50%  {color:#f5f4e4; left:200px; top:200px;}
+  75%  {color:#f7f6ea; left:0px; top:200px;}
+  100% {color: #f0efe4; left:0px; top:0px;} 
+    
+ }
+
+ .resetbutton-container{
+    width: 150px;
+    height: 115px;
+    padding: 5px;
+}
+
+.resetButton{
+    width: 150px;
+    height: 100px;
+    
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #5461ab;
+    outline: none;
+    text-align: center;
+    background-color: #4a73b5;
+    color: #FFFFFF;
+    font: inherit;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.playMediumButton{
+    
+}
