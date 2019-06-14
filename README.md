@@ -11,11 +11,9 @@ You have to shoot down.  There are a max number of nine levels.
 
 # Mechanics
 
-Every 5 discs your greeted with a new message for reaching that milestone.
+Every level completed greets you with a sound effect and message for reaching that stage. 
 
-You will lose if too many discs reach the end.  
-
-Speed and the size of the discs may change as time progresses.
+Speed and the size of the Saucers may change as time progresses.
 
 # WireFrame
 ![alt text](https://i.imgur.com/WGG3Vqv.png)
