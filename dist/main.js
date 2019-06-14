@@ -1,17 +1,9 @@
 function drawCanvas(winningScore = 28, saucerCount = 8) {
-//    const levelMedium = document.getElementById("playMediumButton").addEventListener("click",
-//     function() {
-//         drawCanvas(winningScore = 40, saucerCount = 10);
-        
-//         });
+
     disableMediumButton();
+    disabledHardButton();
     disablePlayButton();
-    // const mediumLevel = disableMediumButton();
-    // console.log(mediumLevel);
-    // const mediumLevel;
-    // const levelEasy = disablePlayButton(); //Disabled game until clicked
-    // console.log(levelEasy);
-    // console.log(levelMedium);
+   
     const canvas = document.getElementById("flyingCanvas");
     const ctx = canvas.getContext("2d");
     var gameOver;
@@ -24,15 +16,6 @@ function drawCanvas(winningScore = 28, saucerCount = 8) {
     let score = 0;
     this.winningScore = winningScore;
     this.saucerCount = saucerCount;
-    //Difficulty variables
-    // let winningScore = 28;
-    // let saucerCount = 8;
-    // if(mediumLevel === "levelMedium"){
-    //     winningScore = 40;
-    //     saucerCount = 10;
-    // }
-    // let saucerRadius = 50;   //size of the saucer
-
     let saucerArray = [];
     
     const target = {
@@ -169,8 +152,3 @@ function drawCanvas(winningScore = 28, saucerCount = 8) {
     turn();
     var interval = setInterval(draw, 10);
 }
-
-// Level of Difficulty
-// Would entail higher Score
-// More Turns
-// More Saucers

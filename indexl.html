@@ -29,11 +29,14 @@
         <div class="main-header-container">
 
             <div class="statistics">
-                <div class="score" id="score">
-
-                </div>
-                 <div class="playMedium-button-container">
-                    <button class="playMediumButton" id="playMediumButton" onClick="this.disabled=true">Medium</button>
+                <div class="instructions-container">
+                    <button class="instructions" id="words">
+                        Choose the buttons on the right to PLAY.
+                        Use the mouse to CLICK AND SHOOT.
+                    </button>
+               </div>
+                <div class="score-container">
+                    <button class="score" id="score"></button>
                 </div>
             </div>
 
@@ -47,8 +50,10 @@
                 <div class="playbutton-container">
                     <button class="playGameButton" onClick="this.disabled=true">Play Game</button>
                 </div>
-                <div class="resetbutton-container">
-                    <button class="resetButton" onClick="window.location.reload()">Reset Game</button>
+                <div class="all-buttons-container">
+                    <button class="resetButton buttons" onClick="window.location.reload()">Reset Game</button>
+                    <button class="playMediumButton buttons" id="playMediumButton" onClick="this.disabled=true">Medium</button>
+                    <button class="playHardButton buttons" id="playHardButton" onClick="this.disabled=true">Hard</button>
                 </div>
                 <div class="links-container">
                     

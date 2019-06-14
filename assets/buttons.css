@@ -33,16 +33,16 @@
     
  }
 
- .resetbutton-container{
+ .all-buttons-container{
     width: 150px;
     height: 115px;
     padding: 5px;
 }
 
-.resetButton{
+.buttons {
     width: 150px;
-    height: 100px;
-    
+    height: 25px;
+    margin-bottom: 10px;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #5461ab;
@@ -51,11 +51,7 @@
     background-color: #4a73b5;
     color: #FFFFFF;
     font: inherit;
-    font-size: 24px;
+    font-size: 12px;
     font-weight: 500;
     cursor: pointer;
-}
-
-.playMediumButton{
-    
 }

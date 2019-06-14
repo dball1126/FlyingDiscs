@@ -19,8 +19,8 @@
     animation: rotation 2s infinite linear;
     transform: rotateZ(180deg) infinite;
     font-size: 24px;
-    animation: popout 1s ease;
-    -webkit-animation: popout 1s ease;
+    animation: colorful 1s ease;
+    -webkit-animation: colorful 1s ease;
     animation-duration: 4s;
     animation-iteration-count: infinite;
     
@@ -48,7 +48,7 @@
     skew(0deg,1deg);
 }
 
- @keyframes popout {
+ @keyframes colorful {
     /* from{transform:scale(0)}
     80%{transform:scale(1.2)}
     to{transform:scale(1)}  */
@@ -66,14 +66,45 @@
 
 .statistics{
     width: 450px;
+    height: 120px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.instructions-container{
+    width: 290px;
     height: 115px;
     padding: 5px;
     
 }
 
-.score{
-    width: 145px;
+.instructions {
+    width: 290px;
     height: 100px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #f0c261;
+    outline: none;
+    text-align: center;
+    background-color: #f1b34f;
+    color: #FFFFFF;
+    font: inherit;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.score-container{
+    width: 140px;
+    height: 115px;
+    padding: 5px;
+}
+
+.score{
+    
+    width: 140px;
+    height: 100px;
+    border: none;
     border-radius: 15px;
     box-shadow: 0 9px #f0c261;
     outline: none;
@@ -81,7 +112,8 @@
     background-color: #f1b34f;
     color: red;
     font: inherit;
-    float: right;
+    font-size: 24px;
+    font-weight: 800;
 }
 
 /* .message1{

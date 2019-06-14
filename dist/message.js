@@ -1,5 +1,3 @@
-
-
 //render method  vanilla javascript
 
 const render = function (template, node) { //Render Method
