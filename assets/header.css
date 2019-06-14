@@ -99,12 +99,21 @@
 /* outline: none; */
 /* background-color: #f1b34f; */
 
-.alert-box{
-    background-color: red;
+.alert-box-lose{
+    
     width: 100%;
     height: 1000px;
     position: absolute;
     background-image: url("https://media.giphy.com/media/5Gru78zpeaFBS/giphy.gif");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.alert-box-win{
+    
+    width: 100%;
+    height: 1000px;
+    position: absolute;
+    background-image: url("http://www.sclance.com/pngs/you-win-png/you_win_png_1553241.png");
     background-size: 100%;
     background-repeat: no-repeat;
 }

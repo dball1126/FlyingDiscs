@@ -1,0 +1,28 @@
+{
+  "name": "FlyingSaucers",
+  "version": "1.0.0",
+  "description": "A browser based point and click shooter game which uses CSS, HTML5, and Javascript.",
+  "main": "webpack.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dball1126/FlyingDiscs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dball1126/FlyingDiscs/issues"
+  },
+  "homepage": "https://github.com/dball1126/FlyingDiscs#readme",
+  "devDependencies": {
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
+  }
+}

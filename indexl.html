@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/templates.css">
     <title>Flying Saucers</title>
     <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
-
+    
     <style>
         canvas {
             position: center;
@@ -32,9 +32,9 @@
                 <div class="score" id="score">
 
                 </div>
-                 <div class="message1" id="message1">
+                 <!-- <div class="message1" id="message1">
 
-                </div>
+                </div> -->
             </div>
 
             <div class="main-header">
@@ -68,14 +68,23 @@
             
                 </div>
             </div>
-
+            <div class="box">
+                <div class="canvas-border">
+                   
             <canvas id="flyingCanvas" width="900px" height="450px">
                 <script type="application/javascript" src="./dist/main.js"></script>
                 <script type="application/javascript" src="./dist/sound.js"></script>
                 <script type="application/javascript" src="./dist/message.js"></script>
                 <script type="application/javascript" src="./dist/util.js"></script>
+                <script type="text/javascript" src="geom_conversions.js"></script>
+                <script type="text/javascript" src="vector.js"></script>
+                <script type="text/javascript" src="particles.js"></script>
+                
+                
             </canvas>
-           
+            
+            </div>
+        </div>
             <div class="right-sidebar-container">
                 <div class="right-sidebar" id="right-sidebar">
                 </div>

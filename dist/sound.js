@@ -25,7 +25,7 @@ const playSound = () => {
 }
 
 const gameOverSound = () => {
-    createjs.Sound.play(gameOverID);
+   return createjs.Sound.play(gameOverID);
 }
 
 const gameWonSound = () => {

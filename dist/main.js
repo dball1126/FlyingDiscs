@@ -1,14 +1,12 @@
 
 
-
-
-
 function drawCanvas() {
     
     disablePlayButton(); //Disabled game until clicked
     const canvas = document.getElementById("flyingCanvas");
     const ctx = canvas.getContext("2d");
-    let gameOver = false;
+    var gameOver;
+    var gameWon;
     let x = canvas.width / 7;
     let y = canvas.height / 1.2;
     let dx = 3.6;
@@ -18,7 +16,6 @@ function drawCanvas() {
     let saucerRadius = 50;   //size of the saucer
 
     let saucerArray = [];
-
 
     
     const target = {
@@ -31,6 +28,7 @@ function drawCanvas() {
             target.x = event.clientX - canvas.offsetLeft;
             target.y = event.clientY - canvas.offsetTop;
             //target position
+           
         });
 
 
@@ -41,11 +39,14 @@ function drawCanvas() {
                 if (target.x > unit.x && target.x < unit.x + unit.saucerRadius && target.y > unit.y && target.y < unit.y + unit.saucerRadius) {
                     unit.status = 0;   //change saucer status
                     score++;  //score count
+                    
                     if (score >= 28) {
                         gameWonSound();
-                        alert("YOU WiN");
-                        document.location.reload();
-                        clearInterval(interval);
+                        drawGameWonMessage();
+                        // alert("YOU WiN");
+                        gameWon = true;
+                        setTimeout(function () { clearInterval(interval); }, 3000);
+                        setTimeout(function () { document.location.reload(); }, 3000);
                     }
                     if (score == saucerArray.length) {
                         // alert("ON FiRE!");  //TURN OVER
@@ -96,13 +97,14 @@ function drawCanvas() {
         this.saucerRadius = saucerRadius;
         this.status = status;
         this.imageWidth = 144; //actual width and height of the saucer.png
-        this.imageHeight = 66;
+        this.imageHeight = 131; //changed from 66 to 131 when the image was changed;
 
         this.draw = function () {
             const image = new Image();
             image.onload = Saucer;
-            image.src = "assets/saucer4.png";
-
+            // image.src = "https://media.giphy.com/media/2Wf4qYgMmou4zjg9qX/giphy.gif";
+            image.src = "assets/saucer5.gif";
+            //image courtesy of Acura from Gify.com
             ctx.beginPath();
             ctx.webkitImageSmoothingEnabled = false;
             ctx.mozImageSmoothingEnabled = false;
@@ -119,17 +121,22 @@ function drawCanvas() {
                 this.dy = -this.dy;
             } else if (this.x > canvas.width) {  //Does the saucer fall off the right side of the screen
                 //GAME OVER
-                drawGameOverMessage();
-                gameOverSound();
+               
+                
+                // gameovercount = 1;
                 gameOver = true;
+                // if(gameOver){ 
+                // gameOverSound();
+                // gameOver = false
+                // }
                
             }
 
             this.x += this.dx;  //arc speed along with up above
             this.y += this.dy;
             this.imageWidth -= .09;  //change size of image as game progresses
-            this.imageHeight -= .009;  // Height should get smaller due to it being less than half of the width of the saucer
-
+            this.imageHeight -= .09;  // Height should get smaller due to it being less than half of the width of the saucer
+                        //changed from .009 to .09 when image was changed to 131px long
             this.draw();
         }
     }
@@ -140,10 +147,8 @@ function drawCanvas() {
         render(scoreTemplate, document.querySelector('#score'))
     }
    
-    const drawGameOverMessage = () => {
-        const loseTemplate = `<p class="alert-box">GAME OVER ! </p>`;
-        render(loseTemplate, document.querySelector('#message1'));
-    }
+    
+
 
    
 
@@ -157,11 +162,14 @@ function drawCanvas() {
         }
         collisionDetection();
         // drawGameOverMessage();
-        if (gameOver){
+        if (gameOver && !gameWon){
             // setTimeout(function () { alert("Hello"); }, 3000);
-            //  alert("GAME OVER");
+            
+           
+            drawGameOverMessage();
             setTimeout(function () { clearInterval(interval); }, 3000);
             setTimeout(function () { document.location.reload();}, 3000);
+            
         }
         drawScore();
 
@@ -172,3 +180,6 @@ function drawCanvas() {
     turn();
     var interval = setInterval(draw, 10);
 }
+
+
+
