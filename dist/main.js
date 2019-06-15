@@ -109,14 +109,15 @@ function Game(winningScore = 28, saucerCount = 8) {
 
         this.update = function () { 
               //WHERE THE REAL MAGIC HAPPENS  the saucer is drawn here.
-            if (this.y + this.saucerRadius > canvas.height || this.y - this.saucerRadius < 0) {
-                this.dy = -this.dy;
-            } else if (this.x > canvas.width) {  //Does the saucer fall off the right side of the screen
+            if (this.x > canvas.width) {  //Does the saucer fall off the right side of the screen
                 //GAME OVER 
-                 
-                drawScoreMessage();
+
+                // drawScoreMessage();
 
                 gameOver = true;
+            } else if 
+                (this.y + this.saucerRadius > canvas.height || this.y - this.saucerRadius < 0) {
+                    this.dy = -this.dy;
             }
             this.x += this.dx;  //arc speed along with up above
             this.y += this.dy;
@@ -131,10 +132,10 @@ function Game(winningScore = 28, saucerCount = 8) {
         const scoreTemplate = `<p>Score: ${score}</p>`;
         render(scoreTemplate, document.querySelector('#score'))
     }
-    const drawScoreMessage = () => {
-        const scoreTemplateM = `<div class="alert-box-score"><p>${realScore}</p></div>`;
-        render(scoreTemplateM, document.querySelector('#message1'));
-    }
+    // const drawScoreMessage = () => {
+    //     const scoreTemplateM = `<div class="alert-box-score"><p>${realScore}</p></div>`;
+    //     render(scoreTemplateM, document.querySelector('#message1'));
+    // }
 
     function draw() { //Frames drawn section
         ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
