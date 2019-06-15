@@ -109,7 +109,7 @@ function Game(winningScore = 28, saucerCount = 8) {
 
         this.update = function () { 
               //WHERE THE REAL MAGIC HAPPENS  the saucer is drawn here.
-            if (this.x > canvas.width) {  //Does the saucer fall off the right side of the screen
+            if (this.x > canvas.width || this.imageWidth <= 0 || this.imageHeight <= 0) {  //Does the saucer fall off the right side of the screen
                 //GAME OVER 
 
                 // drawScoreMessage();
