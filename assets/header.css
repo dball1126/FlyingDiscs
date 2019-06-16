@@ -128,12 +128,14 @@
     width: 450px;
     height: 120px;
     display: flex;
+    
 }
 
 .links-container{
-    width: 120px;
-    height: 115px;
-    padding: 5px;
+    width: 229px;
+    height: 100px;
+    padding-top: 10px;
+    
     
 }
 
@@ -143,15 +145,17 @@
     background-image: url("https://i.imgur.com/v5jPrdo.png");
     background-size: 40%;
     background-repeat: no-repeat;
+    
 }
 
 .git-link{
-   width: 115px;
+   width: 120px;
     height: 50px;
     padding: 5px;
     background-image: url("https://i.imgur.com/v5jPrdo.png");
     background-size: 40%;
     background-repeat: no-repeat;
+    float: right;
 }
 
 .linkedIn-link{
@@ -161,4 +165,5 @@
     background-image: url("https://i.imgur.com/0bPZ3fC.png");
     background-size: 40%;
     background-repeat: no-repeat;
+    float: right;
 }
