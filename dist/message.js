@@ -1,5 +1,6 @@
 //render method  vanilla javascript
 
+
 const render = function (template, node) { //Render Method
     if (!node) return;
     node.innerHTML = template;
@@ -14,6 +15,7 @@ const drawGameOverMessage = () => {
 const drawGameWonMessage = () => {
     const winTemplate = `<div class="alert-box-win"></div>`;
     render(winTemplate, document.querySelector('#message1'));
+    
 }
 
 

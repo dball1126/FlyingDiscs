@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./assets/index.css">
     <link rel="stylesheet" href="./assets/header.css">
     <link rel="stylesheet" href="./assets/buttons.css">
+    <link rel="stylesheet" href="./assets/overlay.css">
+
     <title>Flying Saucers</title>
     <script src="https://code.createjs.com/1.0.0/soundjs.min.js"></script>
     
@@ -23,17 +25,40 @@
 
 <body onload="loadSound();">
     
-    <div class="main-container" id="message1" >
-        
-        
+    <div class="main-container" id="message1">
+        <div id="overlay">
+            <div id="overlay-container">
+            <div id="overlayMessage">
+                <div id="overlay-img"></div>
+                <div class="overlay-buttons">
+                <button class="playGameButton" onClick="this.disabled=true">Play Game</button>
+                <button class="playMediumButton buttons" id="playMediumButton" onClick="this.disabled=true">Medium</button>
+                <button class="playHardButton buttons" id="playHardButton" onClick="this.disabled=true">Hard</button>
+                </div>
+            </div>
+            <div class="red-arrow"></div>
+            <div class="instructions-container">
+                <button class="instructions" id="words">
+                    Instructions: </br>
+                    Use the Mouse to click and shoot the Flying Saucers Down.  Do not let any Saucers reach the right side of the screen or you lose.
+                    The game defaults to the Easy level. </br>
+                    Easy: 32 Saucers.  Four levels </br>
+                    Medium: 50 Saucers. Seven levels. </br>
+                    Hard: 110 Saucers.  Nine levels. 
+
+                </button>
+            </div>
+            </div>
+            
+        </div>
         <div class="main-header-container">
 
             <div class="statistics">
                 <div class="instructions-container">
-                    <button class="instructions" id="words">
+                    <!-- <button class="instructions" id="words">
                         Choose the buttons on the right to PLAY.
                         Use the mouse to CLICK AND SHOOT.
-                    </button>
+                    </button> -->
                </div>
                 <div class="score-container">
                     <button class="score" id="score"></button>
@@ -48,12 +73,12 @@
 
             <div class="profile-links">
                 <div class="playbutton-container">
-                    <button class="playGameButton" onClick="this.disabled=true">Play Game</button>
+                    <!-- <button class="playGameButton" onClick="this.disabled=true">Play Game</button> -->
                 </div>
                 <div class="all-buttons-container">
-                    <button class="resetButton buttons" onClick="window.location.reload()">Reset Game</button>
+                    <!-- <button class="resetButton buttons" onClick="window.location.reload()">Reset Game</button>
                     <button class="playMediumButton buttons" id="playMediumButton" onClick="this.disabled=true">Medium</button>
-                    <button class="playHardButton buttons" id="playHardButton" onClick="this.disabled=true">Hard</button>
+                    <button class="playHardButton buttons" id="playHardButton" onClick="this.disabled=true">Hard</button> -->
                 </div>
                 <div class="links-container">
                     

@@ -1,5 +1,6 @@
 function Game(winningScore = 32, saucerCount = 8) {
-
+    // drawScoreMessage();
+     
     disableMediumButton();
     disabledHardButton();
     disablePlayButton();
@@ -8,6 +9,7 @@ function Game(winningScore = 32, saucerCount = 8) {
     const ctx = canvas.getContext("2d");
     var gameOver;
     var gameWon;
+    var gameStart;
     var gameStatus = 1;
     var gameCount = 0;
     let x = canvas.width / 7;
