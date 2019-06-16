@@ -41,18 +41,10 @@ function Game(winningScore = 32, saucerCount = 8) {
                     score++;  //score count
                     
                     if (score >= winningScore) {//GAME WON 
-                        // ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        // gameWonSound();
                         gameWon = true;
-
-                        
-                        
-                       
                     }
 
-
-
-                    if (score == saucerArray.length) {
+                    if (score == saucerArray.length && !gameOver && !gameWon) {
             
                         let sounder = playSound();
                         soundID += 1; //increment  per level completed
@@ -64,7 +56,6 @@ function Game(winningScore = 32, saucerCount = 8) {
                         const leftMessage = `${sounder}`;
                         const leftTemplate = `<p class="sideMessage">${leftMessage}</p>`;
                         render(leftTemplate, document.querySelector('#left-sidebar'));
-
 
                         const rightMessage = `${sounder}`;
                         const rightTemplate = `<p class="sideMessage">${rightMessage}</p>`;
@@ -116,9 +107,7 @@ function Game(winningScore = 32, saucerCount = 8) {
         this.update = function () { 
               //WHERE THE REAL MAGIC HAPPENS  the saucer is drawn here.
             if (this.x > canvas.width || this.imageWidth <= 0 || this.imageHeight <= 0) {  //Does the saucer fall off the right side of the screen
-                //GAME OVER 
-                
-                gameOver = true;
+                    gameOver = true;
             } else if 
                 (this.y + this.saucerRadius > canvas.height || this.y - this.saucerRadius < 0) {
                     this.dy = -this.dy;
@@ -136,10 +125,10 @@ function Game(winningScore = 32, saucerCount = 8) {
         const scoreTemplate = `<p>Score: ${score}</p>`;
         render(scoreTemplate, document.querySelector('#score'))
     }
-    // const drawScoreMessage = () => {
-    //     const scoreTemplateM = `<div class="alert-box-score"><p>${realScore}</p></div>`;
-    //     render(scoreTemplateM, document.querySelector('#message1'));
-    // }
+    const drawScoreMessage = () => {
+        const scoreTemplateM = `<div class="alert-box-score"><p>${score}</p></div>`;
+        render(scoreTemplateM, document.querySelector('#message1'));
+    }
 
     function draw() { //Frames drawn section
         ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
@@ -151,19 +140,24 @@ function Game(winningScore = 32, saucerCount = 8) {
         }
         collisionDetection();
         if (gameWon && !gameOver){ //Game Won
-        for (gameCount; gameCount < gameStatus; gameCount++) {
-            gameWonSound();
-            drawGameWonMessage();
-            setTimeout(function () { clearInterval(interval); }, 1000);
-            setTimeout(function () { document.location.reload(); }, 3000);
+            
+            for (gameCount; gameCount < gameStatus; gameCount++) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
+                gameWonSound();
+                drawScoreMessage();
+                drawGameWonMessage();
+                setTimeout(function () { clearInterval(interval); }, 1000);
+                setTimeout(function () { document.location.reload(); }, 3000);
+            }
         }
-    }
         if (gameOver && !gameWon){ // Game Over 
             for (gameCount; gameCount < gameStatus; gameCount++) {
-            gameOverSound();
-            drawGameOverMessage();
-            setTimeout(function () { clearInterval(interval); }, 3000);
-            setTimeout(function () { document.location.reload();}, 3000);
+                ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
+
+                gameOverSound();
+                drawGameOverMessage();
+                setTimeout(function () { clearInterval(interval); }, 3000);
+                setTimeout(function () { document.location.reload();}, 3000);
             }
         }
         drawScore();

@@ -10,7 +10,7 @@ const levelFive = "LEVEL 5";
 const levelSix = "LEVEL 6";
 const levelSeven = "LEVEL 7";
 const levelEight = "LEVEL 8";
-const lastLevel = "LAST ONE"
+const lastLevel = "LEVEL 9";
 let soundID = 0;
 
 
@@ -27,7 +27,8 @@ const loadSound = () => {
     createjs.Sound.registerSound("assets/levelSix.mp3", levelSix);
     createjs.Sound.registerSound("assets/levelSeven.mp3", levelSeven);
     createjs.Sound.registerSound("assets/levelEight.mp3", levelEight);
-    createjs.Sound.registerSound("assets/lastLevel.mp3", lastLevel);
+    createjs.Sound.registerSound("assets/success.mp3", lastLevel);
+    // createjs.Sound.registerSound("assets/levelEight.mp3", bonusLevel);
 }
 
 const playSound = () => {

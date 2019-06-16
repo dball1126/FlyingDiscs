@@ -18,11 +18,11 @@ function levelEasy() {
 }
 
 function levelMedium(){
-    Game(50, 10);
+    Game(70, 10);
 }
 
 function levelHard(){
-    Game(90, 11);
+    Game(110, 11);
 }
 
 
