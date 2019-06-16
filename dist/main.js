@@ -1,4 +1,4 @@
-function Game(winningScore = 28, saucerCount = 8) {
+function Game(winningScore = 32, saucerCount = 8) {
 
     disableMediumButton();
     disabledHardButton();
@@ -8,6 +8,8 @@ function Game(winningScore = 28, saucerCount = 8) {
     const ctx = canvas.getContext("2d");
     var gameOver;
     var gameWon;
+    var gameStatus = 1;
+    var gameCount = 0;
     let x = canvas.width / 7;
     let y = canvas.height / 1.2;
     let dx = 3.6;
@@ -39,12 +41,16 @@ function Game(winningScore = 28, saucerCount = 8) {
                     score++;  //score count
                     
                     if (score >= winningScore) {//GAME WON 
-                        gameWonSound();
-                        drawGameWonMessage();
+                        // ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        // gameWonSound();
                         gameWon = true;
-                        setTimeout(function () { clearInterval(interval); }, 3000);
-                        setTimeout(function () { document.location.reload(); }, 3000);
+
+                        
+                        
+                       
                     }
+
+
 
                     if (score == saucerArray.length) {
             
@@ -111,9 +117,7 @@ function Game(winningScore = 28, saucerCount = 8) {
               //WHERE THE REAL MAGIC HAPPENS  the saucer is drawn here.
             if (this.x > canvas.width || this.imageWidth <= 0 || this.imageHeight <= 0) {  //Does the saucer fall off the right side of the screen
                 //GAME OVER 
-
-                // drawScoreMessage();
-
+                
                 gameOver = true;
             } else if 
                 (this.y + this.saucerRadius > canvas.height || this.y - this.saucerRadius < 0) {
@@ -146,12 +150,21 @@ function Game(winningScore = 28, saucerCount = 8) {
             }
         }
         collisionDetection();
-
+        if (gameWon && !gameOver){ //Game Won
+        for (gameCount; gameCount < gameStatus; gameCount++) {
+            gameWonSound();
+            drawGameWonMessage();
+            setTimeout(function () { clearInterval(interval); }, 1000);
+            setTimeout(function () { document.location.reload(); }, 3000);
+        }
+    }
         if (gameOver && !gameWon){ // Game Over 
+            for (gameCount; gameCount < gameStatus; gameCount++) {
+            gameOverSound();
             drawGameOverMessage();
-            // drawScoreMessage();
             setTimeout(function () { clearInterval(interval); }, 3000);
             setTimeout(function () { document.location.reload();}, 3000);
+            }
         }
         drawScore();
         // if(score > 0)realScore = score;
