@@ -19,8 +19,9 @@ const ctx = canvas.getContext("2d");
 function levelEasy() {
     
     overlay();
-    // setTimeout(function () { document.location.reload(); }, 2000);
-    // setTimeout((setInterval(draw, 10)), 2000);
+    music = gameMusic();
+    // musicPlayer();
+    
     setTimeout(Game, 3000);
     
     // startMessage();
@@ -28,13 +29,10 @@ function levelEasy() {
     // let timerId = setTimeout(drawScoreMessage1, 1000);
     // overlay();
     // clearTimeout(timerId);
-
-    
 }
 
 function levelMedium(){
     overlay();
-    // var g = Game(70, 10);
     setTimeout(function () {
         Game(70, 10);
     }, 3000);
@@ -83,7 +81,6 @@ function overlay() {
 
 
 
-// document.getElementById(".playMediumButton").addEventListener("click", Game);
 document.querySelector(".playMediumButton").addEventListener("click", levelMedium);
 document.querySelector(".playHardButton").addEventListener("click", levelHard);
 document.querySelector(".playGameButton").addEventListener("click", levelEasy);

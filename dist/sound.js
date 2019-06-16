@@ -1,3 +1,4 @@
+// import { create } from "domain";
 
 const shootID = "Shoot";
 const gameWonID = "Game Won";
@@ -11,6 +12,7 @@ const levelSix = "LEVEL 6";
 const levelSeven = "LEVEL 7";
 const levelEight = "LEVEL 8";
 const lastLevel = "LEVEL 9";
+const gameMusicID = "gameMusic";
 let soundID = 0;
 
 
@@ -28,14 +30,14 @@ const loadSound = () => {
     createjs.Sound.registerSound("assets/levelSeven.mp3", levelSeven);
     createjs.Sound.registerSound("assets/levelEight.mp3", levelEight);
     createjs.Sound.registerSound("assets/success.mp3", lastLevel);
-    // createjs.Sound.registerSound("assets/levelEight.mp3", bonusLevel);
+    createjs.Sound.registerSound("assets/gameMusic.mp3", gameMusicID);
 }
+
 
 const playSound = () => {
     this.sounds = [explosionID, yesID, clappingID, explosionzID, levelFive, levelSix, levelSeven, levelEight, lastLevel];
     // this.rand = Math.floor(Math.random() * Math.floor(3));
     createjs.Sound.play(this.sounds[soundID]);
-
     return sounds[soundID];
 }
 
@@ -49,4 +51,8 @@ const gameWonSound = () => {
 
 const shootTarget = () => {
     createjs.Sound.play(shootID);
+}
+
+const gameMusic = () => {
+   return music = createjs.Sound.play(gameMusicID);
 }

@@ -9,7 +9,6 @@ function Game(winningScore = 32, saucerCount = 8) {
     const ctx = canvas.getContext("2d");
     var gameOver;
     var gameWon;
-    var gameStart;
     var gameStatus = 1;
     var gameCount = 0;
     let x = canvas.width / 7;
@@ -43,6 +42,7 @@ function Game(winningScore = 32, saucerCount = 8) {
                     score++;  //score count
                     
                     if (score >= winningScore) {//GAME WON 
+                        music.stop();
                         gameWon = true;
                     }
 
@@ -109,6 +109,7 @@ function Game(winningScore = 32, saucerCount = 8) {
         this.update = function () { 
               //WHERE THE REAL MAGIC HAPPENS  the saucer is drawn here.
             if (this.x > canvas.width || this.imageWidth <= 0 || this.imageHeight <= 0) {  //Does the saucer fall off the right side of the screen
+                    music.stop();
                     gameOver = true;
             } else if 
                 (this.y + this.saucerRadius > canvas.height || this.y - this.saucerRadius < 0) {
@@ -145,6 +146,7 @@ function Game(winningScore = 32, saucerCount = 8) {
             
             for (gameCount; gameCount < gameStatus; gameCount++) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height); //clear frames
+                
                 gameWonSound();
                 drawScoreMessage();
                 drawGameWonMessage();
