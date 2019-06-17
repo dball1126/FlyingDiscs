@@ -33,6 +33,7 @@ function levelEasy() {
 
 function levelMedium(){
     overlay();
+    music = gameMusic();
     setTimeout(function () {
         Game(70, 10);
     }, 3000);
@@ -41,6 +42,7 @@ function levelMedium(){
 
 function levelHard(){
     overlay();
+    music = gameMusic();
     setTimeout(function () {
         Game(110, 11);
     }, 3000);
