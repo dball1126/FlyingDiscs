@@ -73,11 +73,16 @@ function Game(winningScore = 32, saucerCount = 8) {
     const turn = () => {
         for (let i = 0; i < saucerCount; i++) {
             //initiation of saucers
-            const xx = Math.random() * (canvas.width / 7);
+            // const xx = (Math.random() * (canvas.width / 7)) -150;
+            const xx = Math.random() * -85 ;
             const yy = Math.random() * (canvas.height / 1.2);
-            const dxx = (Math.random()) * 3.6;
-            const dyy = (Math.random()) * -1.9;
+           
+            // const dxx = (Math.random()) * 3.6;
+            const dxx = Math.random() * 3.9;
+           
+            const dyy = Math.random() * -1.9;
             const radius = 50;
+            
             saucerArray.push(new Saucer(xx, yy, dxx, dyy, radius, status));
         }
     }
@@ -102,6 +107,7 @@ function Game(winningScore = 32, saucerCount = 8) {
             ctx.imageSmoothingEnabled = false;
 
             ctx.drawImage(image, this.x, this.y, this.imageWidth, this.imageHeight);
+            
             ctx.arc(this.x, this.y, this.saucerRadius, 0, Math.PI * 2, false); //arc along with up above
             ctx.closePath();
         }
@@ -120,6 +126,7 @@ function Game(winningScore = 32, saucerCount = 8) {
             this.imageWidth -= .09;  //change size of image as game progresses
             this.imageHeight -= .09;  // Height should get smaller due to it being less than half of the width of the saucer
                         //changed from .009 to .09 when image was changed to 131px long
+            
             this.draw();
         }
     }
