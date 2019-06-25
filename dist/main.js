@@ -73,8 +73,9 @@ function Game(winningScore = 32, saucerCount = 8) {
     const turn = () => {
         for (let i = 0; i < saucerCount; i++) {
             //initiation of saucers
-            // const xx = (Math.random() * (canvas.width / 7)) -150;
-            const xx = Math.random() * -85 ;
+            // const xx = (Math.random() * (canvas.width / 7));
+            //changing from -85 to -75 for due to glitch
+            const xx = Math.random() * -75 ;
             const yy = Math.random() * (canvas.height / 1.2);
            
             // const dxx = (Math.random()) * 3.6;

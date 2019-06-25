@@ -1,6 +1,12 @@
+body{
+    background-image: url("https://i.pinimg.com/originals/98/a2/04/98a204a781f4fb7c039a5b656e05a4b3.gif");
+    background-size: 100%;
+   background-repeat: no-repeat;
+}
+
 .main-container{
     width: 100%;
-    height: 1000px;
+    /* height: 1000px; */
    background-image: url("https://i.pinimg.com/originals/98/a2/04/98a204a781f4fb7c039a5b656e05a4b3.gif");
    /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1VEqnwopl5JUG_buv_6CLCpTTAeZeGYk94dtDy45PbW3jyJtA"); */
    background-size: 100%;
@@ -108,28 +114,28 @@ canvas{
    0%
    {
        text-shadow:
-       5px -25px 50px yellow,
+       5px -26px 50px yellow,
        0 0px 20px red,
        10px -15px 15px orange;
    }
    33%
    {
        text-shadow:
-       0 -20px 30px yellow,
+       0 -21px 30px yellow,
        15px -5px 20px red,
        5px 0 20px orange;
    }
    66%
    {
        text-shadow:
-       10px -25px 50px yellow,
+       10px -26px 50px yellow,
        5px -10px 20px red,
        0 -5px 20px orange;
    }
    100%
    {
        text-shadow:
-       0 -20px 50px yellow,
+       0 -21px 50px yellow,
        5px -15px 20px red,
        10px 0 20px orange;
    }
