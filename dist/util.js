@@ -54,6 +54,7 @@ function levelHard(){
     
 }
 function levelMute(){
+    
     mute = muteScenario();
     setTimeout(function () {
       
@@ -101,3 +102,6 @@ document.querySelector(".playMediumButton").addEventListener("click", levelMediu
 document.querySelector(".playHardButton").addEventListener("click", levelHard);
 document.querySelector(".playGameButton").addEventListener("click", levelEasy);
 document.querySelector(".muteButton").addEventListener("click", levelMute);
+
+
+
