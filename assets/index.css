@@ -2,6 +2,9 @@ body{
     background-image: url("https://i.pinimg.com/originals/98/a2/04/98a204a781f4fb7c039a5b656e05a4b3.gif");
     background-size: 100%;
    background-repeat: no-repeat;
+   overflow-y: hidden;
+    overflow-x: hidden;
+   
 }
 
 .main-container{
@@ -12,6 +15,7 @@ body{
    background-size: 100%;
    background-repeat: no-repeat;
    font-family: sans-serif;
+  
 }
 
 

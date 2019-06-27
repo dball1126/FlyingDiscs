@@ -3,6 +3,7 @@
    width: 100%;
     display: flex;
     justify-content: center;
+    
 
 }
 
@@ -98,20 +99,22 @@
 .alert-box-lose{
     
     width: 100%;
-    height: 1000px;
+    height: 100%;
     position: absolute;
     background-image: url("https://media.giphy.com/media/5Gru78zpeaFBS/giphy.gif");
     background-size: 100%;
     background-repeat: no-repeat;
+    
 }
 .alert-box-win{
     
     width: 100%;
-    height: 1000px;
+    height: 100%;
     position: absolute;
     background-image: url("http://www.sclance.com/pngs/you-win-png/you_win_png_1553241.png");
     background-size: 100%;
     background-repeat: no-repeat;
+    
 }
 
 .alert-box-score{
@@ -166,4 +169,9 @@
     background-size: 40%;
     background-repeat: no-repeat;
     float: right;
+}
+
+html {
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
