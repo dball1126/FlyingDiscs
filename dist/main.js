@@ -1,10 +1,11 @@
 function Game(winningScore = 32, saucerCount = 8) {
     // drawScoreMessage();
-     
+    
     disableMediumButton();
     disabledHardButton();
     disablePlayButton();
-   
+    // disabledMuteButton();
+
     const canvas = document.getElementById("flyingCanvas");
     const ctx = canvas.getContext("2d");
     var gameOver;
@@ -75,7 +76,7 @@ function Game(winningScore = 32, saucerCount = 8) {
             //initiation of saucers
             // const xx = (Math.random() * (canvas.width / 7));
             //changing from -85 to -75 for due to glitch
-            const xx = Math.random() * -70 ;
+            const xx = Math.random() * -60 ;
             const yy = Math.random() * (canvas.height / 1.2);
            
             // const dxx = (Math.random()) * 3.6;
@@ -178,7 +179,7 @@ function Game(winningScore = 32, saucerCount = 8) {
         x += dx;
         y += dy * Math.random(199);     //set for the speed of the saucers
     }
-    
+     
     turn();
     var interval = setInterval(draw, 10);
 }

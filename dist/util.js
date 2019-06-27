@@ -13,13 +13,18 @@ function disabledHardButton() {
     document.querySelector(".playHardButton").disabled = true;
 }
 
+function disabledMuteButton() {
+    document.querySelector(".muteButton").disabled = true;
+}
 
 const canvas = document.getElementById("flyingCanvas");
 const ctx = canvas.getContext("2d");
 function levelEasy() {
     
     overlay();
+    
     music = gameMusic();
+    
     // musicPlayer();
     
     setTimeout(Game, 3000);
@@ -48,6 +53,15 @@ function levelHard(){
     }, 3000);
     
 }
+function levelMute(){
+    mute = muteScenario();
+    setTimeout(function () {
+      
+    }, 1000);
+    
+}
+
+
 
 const drawScoreMessage1 = () => {
     
@@ -86,3 +100,4 @@ function overlay() {
 document.querySelector(".playMediumButton").addEventListener("click", levelMedium);
 document.querySelector(".playHardButton").addEventListener("click", levelHard);
 document.querySelector(".playGameButton").addEventListener("click", levelEasy);
+document.querySelector(".muteButton").addEventListener("click", levelMute);

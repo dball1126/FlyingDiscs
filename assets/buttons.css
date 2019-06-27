@@ -21,6 +21,9 @@
     text-shadow: #000 1px 0 10px;
 }
 
+.muteButton{
+    position: absolute;
+}
  .all-buttons-container{
     width: 150px;
     height: 115px;
@@ -42,4 +45,22 @@
     font-size: 12px;
     font-weight: 500;
     cursor: pointer;
+}
+
+.muteButton{
+     width: 100px;
+    height: 25px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #5461ab;
+    outline: none;
+    text-align: center;
+    background-color: #4a73b5;
+    color: #FFFFFF;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 40px
 }
