@@ -75,7 +75,7 @@ function Game(winningScore = 32, saucerCount = 8) {
             //initiation of saucers
             // const xx = (Math.random() * (canvas.width / 7));
             //changing from -85 to -75 for due to glitch
-            const xx = Math.random() * -75 ;
+            const xx = Math.random() * -70 ;
             const yy = Math.random() * (canvas.height / 1.2);
            
             // const dxx = (Math.random()) * 3.6;
