@@ -8,6 +8,7 @@ function Game(winningScore = 32, saucerCount = 8) {
 
     const canvas = document.getElementById("flyingCanvas");
     const ctx = canvas.getContext("2d");
+    // const buttonz = document.getElementById("muteButton");
     var gameOver;
     var gameWon;
     var gameStatus = 1;
@@ -26,13 +27,16 @@ function Game(winningScore = 32, saucerCount = 8) {
         x: undefined,
         y: undefined
     }
-
+    
     canvas.addEventListener('mousedown',
         function (event) {
             target.x = event.clientX - canvas.offsetLeft;
             target.y = event.clientY - canvas.offsetTop; //target position
             shootTarget();
         });
+    
+
+        
 
     function collisionDetection() {
         for (let i = 0; i < saucerArray.length; i++) {

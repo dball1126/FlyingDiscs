@@ -56,8 +56,12 @@ const shootTarget = () => {
 const gameMusic = () => {
    return music = createjs.Sound.play(gameMusicID);
 }
-
+let mute;
 const muteScenario = () => {
-    return mute = createjs.Sound.muted = true;
-
+    
+     mute = createjs.Sound.muted = true;
+}
+const unmuteScenario = () => {
+    mute = createjs.Sound.muted = false;
+    
 }

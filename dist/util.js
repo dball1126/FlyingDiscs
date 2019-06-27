@@ -53,6 +53,7 @@ function levelHard(){
     }, 3000);
     
 }
+
 function levelMute(){
     
     mute = muteScenario();
@@ -62,6 +63,12 @@ function levelMute(){
     
 }
 
+function levelUnmute(){
+    mute = unmuteScenario();
+    setTimeout(function() {
+    
+    }, 1000);
+}
 
 
 const drawScoreMessage1 = () => {
@@ -69,8 +76,6 @@ const drawScoreMessage1 = () => {
     const scoreTemplateM = `<div class="alert-box-score"><p>${0}</p></div>`;
     render(scoreTemplateM, document.querySelector('#message1'));
   
-    
-    
 }
 
 
@@ -102,6 +107,7 @@ document.querySelector(".playMediumButton").addEventListener("click", levelMediu
 document.querySelector(".playHardButton").addEventListener("click", levelHard);
 document.querySelector(".playGameButton").addEventListener("click", levelEasy);
 document.querySelector(".muteButton").addEventListener("click", levelMute);
+document.querySelector(".unmuteButton").addEventListener("click", levelUnmute);
 
 
 
