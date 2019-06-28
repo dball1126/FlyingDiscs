@@ -15,6 +15,10 @@ Every level completed greets you with a sound effect and message for reaching th
 
 Speed and the size of the Saucers may change as time progresses.
 
+# Compatibility
+
+Fully tested to work on Google Chrome Browser ( Desktop )
+
 # Feature: Collision Detection
 
 ![alt text](https://i.imgur.com/hsz5ngM.png)

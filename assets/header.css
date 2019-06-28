@@ -101,9 +101,14 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url("https://media.giphy.com/media/5Gru78zpeaFBS/giphy.gif");
+    color: white;
+    font-weight: 800;
+    text-shadow: #d32323 5px 0 10px;
+    text-align: center;
+    
+    /* background-image: url("https://media.giphy.com/media/5Gru78zpeaFBS/giphy.gif");
     background-size: 100%;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
     
 }
 .alert-box-win{
@@ -111,13 +116,14 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url("http://www.sclance.com/pngs/you-win-png/you_win_png_1553241.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
+    color: white;
+    font-weight: 800;
+    text-shadow: #d32323 5px 0 10px;
+    text-align: center;
     
 }
 
-.alert-box-score{
+/* .alert-box-score{
     visibility: visible;
     width: 100%;
     height: 1000px;
@@ -125,7 +131,7 @@
     font-size: 100px;
     background: white;
     color: black
-}
+} */
 
 .profile-links{
     width: 450px;

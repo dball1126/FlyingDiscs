@@ -7,13 +7,13 @@ const render = function (template, node) { //Render Method
 }
 
 const drawGameOverMessage = () => {
-    const loseTemplate = `<div class="alert-box-lose"></div>`;
+    const loseTemplate = `<div class="alert-box-lose"><p class="game-win-lose">GAME OVER</></div>`;
     render(loseTemplate, document.querySelector('#message1'));
     
 }
 
 const drawGameWonMessage = () => {
-    const winTemplate = `<div class="alert-box-win"></div>`;
+    const winTemplate = `<div class="alert-box-win"><p class="game-win-lose">You Win</></div>`;
     render(winTemplate, document.querySelector('#message1'));
     
 }
