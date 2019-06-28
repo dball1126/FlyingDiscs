@@ -15,41 +15,41 @@
 }
 
 .title-messages{
-    color: white;
+    color: #565aa9;
     text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
-    animation: rotation 2s infinite linear;
-    transform: rotateZ(180deg) infinite;
+    /* animation: rotation 2s infinite linear;
+    transform: rotateZ(180deg) infinite; */
     font-size: 24px;
-    animation: colorful 1s ease;
+    /* animation: colorful 1s ease;
     -webkit-animation: colorful 1s ease;
     animation-duration: 4s;
     animation-iteration-count: infinite;
-    
+     */
 }
 
 .title-messages:before{
-  color: #fff;
+  color: #565aa9;
   text-shadow: 
     -1px 0px 1px rgba(255,255,255,.8),
     1px 0px 1px rgba(0,0,0,.8);
   z-index: 3;
-  transform:
+  /* transform:
     rotateX(0deg)
     rotateY(-15deg)
-    rotateZ(0deg);
+    rotateZ(0deg); */
 }
 .title-messages:after{
   color: rgba(0,0,0,.11);
   z-index:2;
-  transform:
+  /* transform:
     scale(1.08,1)
     rotateX(0deg)
     rotateY(0deg)
     rotateZ(0deg)
-    skew(0deg,1deg);
+    skew(0deg,1deg); */
 }
 
- @keyframes colorful {
+ /* @keyframes colorful {
    
     0%   {color:#565aa9; left:0px; top:0px;}
   25%  {color: #5461ab; left:200px; top:0px;}
@@ -61,7 +61,7 @@
     from{-webkit-transform:scale(0)}
     80%{-webkit-transform:scale(1.2)}
     to{-webkit-transform:scale(1)}
-} 
+}  */
 
 .statistics{
     width: 450px;
