@@ -1,5 +1,4 @@
-# Flying Saucers
-Here is the live [Site](https://dball1126.github.io/FlyingSaucers/)
+# [Flying Saucers](https://dball1126.github.io/FlyingSaucers/)
 
 A browser based point and click shooter game which uses CSS3, HTML5, and Javascript.
 
